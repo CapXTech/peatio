@@ -3,7 +3,7 @@ after_bundle: # Hook point
   target: rails # Hook fields
   execute: true
 
-first_thing: # Hook point
-- command: ./bin/init_config
+before_rails: # Hook point
+- command: bin/init_config
   target: rails # Hook fields ↓
   apply_during: build_only
