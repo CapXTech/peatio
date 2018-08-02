@@ -1,0 +1,9 @@
+after_bundle: # Hook point
+- command: bundle exec rake tmp:create yarn:install
+  target: rails # Hook fields
+  execute: true
+
+first_thing: # Hook point
+- command: ./bin/init_config
+  target: rails # Hook fields ↓
+  apply_during: build_only
