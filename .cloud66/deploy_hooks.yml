@@ -1,5 +1,5 @@
 
-before_rails: # Hook point
+after_bundle: # Hook point
 - command: bundle exec rake tmp:create
   target: rails # Hook fields
   execute: true
