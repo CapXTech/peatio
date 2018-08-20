@@ -1,7 +1,6 @@
 services:
   web:
     build: .
-    domain: beta.capx.pro
     port: 3000
     scale: 2
     environment:
