@@ -28,6 +28,11 @@ Rails.application.config.assets.precompile.concat \
     trading-ui.css
     trading/style.css
     trading/trade.css
+    trading/main.js
+    trading/slick.css
+    trading-ui.js
+    trading/trade.js
+    trading/slick.min.js
   ]
 
 # Precompile all available locales

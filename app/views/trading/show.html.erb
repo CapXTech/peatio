@@ -26,11 +26,10 @@
 
 	<!-- STYLESHEETS -->
 	<%= stylesheet_link_tag 'trading-ui', media: 'all' %>
-	<link rel="stylesheet" href="assets/css/font/style.css"> 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" type="text/css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"> 
-    <link rel="stylesheet" href="assets/js/vendor/slick/slick.css"> 
+    <%= stylesheet_link_tag 'trading/style', media: 'all' %>
     <%= stylesheet_link_tag 'dataTables.bootstrap4.min', media: 'all' %>
     <%= stylesheet_link_tag 'trading/style', media: 'all' %>
     <%= stylesheet_link_tag 'trading/trade', media: 'all' %>
@@ -71,7 +70,7 @@
 	<!-- HEADER -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand" href="./index.html">
-		<img src="assets/images/white-logo.svg" class="dark-img" alt=""/>
+		<img src=image_path('white-logo.svg') class="dark-img" alt=""/>
 		<img src="<%= ENV['LOGO_URL'] || image_path('logo.svg') %>">
 		</a>
 
@@ -170,7 +169,7 @@
 		</div>
 		
 		<div class="profile-info">
-			<img src="assets/images/user.jpeg" alt=""/>
+			<img src=<%= image_path("user.jpeg") %> alt=""/>
 			<i class="icon-arrow-down"></i>
 		
 			<div class="profile-dropdown">
@@ -2521,10 +2520,9 @@
 <a href="#" class="btn btn-danger bsf-sell">Sell</a>
 </div>
 
-<script src="assets/js/vendor/jquery-1.11.2.js"></script>
-<%= javascript_include_tag 'admin' %>
-<script src="assets/js/vendor/slick/slick.min.js"></script>
-<script src="assets/js/main.js"></script>
+<%= javascript_include_tag 'trading-ui' %>
+<%= javascript_include_tag 'trading/slick.min.js' %>
+<%= javascript_include_tag 'trading/main.js' %>
 
 <!-- GOOGLE TRANSLATE -->
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -2532,8 +2530,7 @@
 
 <%= javascript_include_tag("jquery.dataTables.min.js") %>
 <%= javascript_include_tag("dataTables.bootstrap4.min.js") %>
-<script src="assets/js/vendor/datatable/trade.js"></script>
-
+<%= javascript_include_tag 'trading/trade.js' %>
 
 </body>
 </html>
