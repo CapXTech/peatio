@@ -22,6 +22,12 @@ Rails.application.config.assets.precompile.concat \
     swagger_ui.css
     swagger_ui_print.css
     swagger_ui_screen.css
+    jquery.dataTables.min.js
+    dataTables.bootstrap4.min.js
+    dataTables.bootstrap4.min.css
+    trading-ui.css
+    trading/style.css
+    trading/trade.css
   ]
 
 # Precompile all available locales

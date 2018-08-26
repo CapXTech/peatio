@@ -1,0 +1,2539 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+
+	<title>CAPX Pro</title>
+
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="CAPC" />
+	
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image" content="">
+		
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>	
+
+	<!-- STYLESHEETS -->
+	<%= stylesheet_link_tag 'trading-ui', media: 'all' %>
+	<link rel="stylesheet" href="assets/css/font/style.css"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"> 
+    <link rel="stylesheet" href="assets/js/vendor/slick/slick.css"> 
+    <%= stylesheet_link_tag 'dataTables.bootstrap4.min', media: 'all' %>
+    <%= stylesheet_link_tag 'trading/style', media: 'all' %>
+    <%= stylesheet_link_tag 'trading/trade', media: 'all' %>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	
+</head>
+<body class="dark-mode">
+
+<div class="wrapper">
+	<!-- Mobile Menu -->
+	<div class="mob-menu">
+		<div class="dual">
+			<a class="nav-link btn btn-primary btn-block" href="#">Sign in</a>
+			<a class="nav-link btn btn-outline-primary btn-block" href="#">Trade Now</a>
+		</div>
+		
+		<div class="mob-menu__inner">
+			<span>Products</span>
+			<a href="#">CapX Pro</a>
+			<a href="#">Capc</a>
+		</div>
+
+		<div class="mob-menu__inner">
+			<span>Learn</span>
+			<a href="#">Buying Cryptocurrency</a>
+			<a href="#">About</a>
+			<a href="#">Support</a>
+		</div>
+	</div>
+	
+	<!-- HEADER -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+		<a class="navbar-brand" href="./index.html">
+		<img src="assets/images/white-logo.svg" class="dark-img" alt=""/>
+		<img src="<%= ENV['LOGO_URL'] || image_path('logo.svg') %>">
+		</a>
+
+		<div id="google_translate_element"></div>
+		
+		<div class="nav-trigger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		
+		<div class="pair--wrap">
+			<div class="pair">
+				<span>BTC/MYR</span>
+				Select pair
+				<i class="icon-arrow-down"></i>
+				<ul>
+					<li>
+						<span class="text-uppercase">myr pair</span>
+					</li>
+					<li class="sub">
+						<span>btc/myr</span>
+						<span>8,861.19 myr</span>
+						<span class="text-success">+1.41%</span>
+					</li>
+					<li class="sub">
+						<span>eth/myr</span>
+						<span>435.91 myr</span>
+						<span class="text-danger">-1.96%</span>
+					</li>
+					<li class="sub">
+						<span>bch/myr</span>
+						<span>815.39 myr</span>
+						<span class="text-success">+7.01%</span>
+					</li>
+					<li class="sub">
+						<span>ltc/myr</span>
+						<span>83.51 myr</span>
+						<span class="text-success">+42.87%</span>
+					</li>
+					<li class="sub">
+						<span>hsr/myr</span>
+						<span>4.85 myr</span>
+						<span class="text-success">-3.00%</span>
+					</li>
+					<li>
+						<span class="text-uppercase">usdt pair</span>
+					</li>
+					<li class="sub">
+						<span>btc/usdt</span>
+						<span>6,336.14 usdt</span>
+						<span class="text-success">+3.55%</span>
+					</li>
+					<li class="sub">
+						<span>eth/usdt</span>
+						<span>320.00 usdt</span>
+						<span class="text-success">+3.15%</span>
+					</li>
+					<li class="sub">
+						<span>btc/usdt</span>
+						<span>6,336.14 usdt</span>
+						<span class="text-success">+3.55%</span>
+					</li>
+					<li>
+						<span class="text-uppercase">btc pair</span>
+					</li>
+					<li class="sub">
+						<span>dash/btc</span>
+						<span>0.028000 btc</span>
+						<span class="text-success">+0.00%</span>
+					</li>
+					<li class="sub">
+						<span>fuel/btc</span>
+						<span>0.00103 btc</span>
+						<span class="text-success">+0.00%</span>
+					</li>
+					<li class="sub">
+						<span>ubtc/btc</span>
+						<span>0.000626 btc</span>
+						<span class="text-danger">-4.57%</span>
+					</li>
+				</ul>
+			</div>
+			<div class="pair">
+				<span>114.4395 BTC</span>
+				24 hour volume
+			</div>
+			<div class="pair">
+				<span>8,941.60 USD</span>
+				Last trade price
+			</div>
+			<div class="pair">
+				<span class="text-success">+3.61%</span>
+				24 hour price
+			</div>
+		</div>
+		
+		<div class="profile-info">
+			<img src="assets/images/user.jpeg" alt=""/>
+			<i class="icon-arrow-down"></i>
+		
+			<div class="profile-dropdown">
+				<a href="#">Profile</a>
+				<a href="#">My Orders</a>
+				<a href="#">Support</a>
+			</div>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navb">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Help</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">My Wallet</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn btn-primary" href="#">Trade Now</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+		
+	<div class="mob-dropdown mob-visible">
+						<div class="style-toggle act">
+							<span>&#9788;</span>
+							<input type="checkbox" checked id="toggle-view" class="cbx hidden"/>
+							<label for="toggle-view" class="toggle-bar"></label>
+							<span>&#9789;</span>
+						</div>
+						
+		<ul>
+			<li class="inits">Trading Pairs</li>
+			<li class="mob-my-orders" data-value="value 1">My Orders</li>
+			<li class="mob-market-depth" data-value="value 2">Market Depth</li>
+			<li class="mob-order-book" data-value="value 3">Order Book</li>
+			<li class="mob-trading-pairs" data-value="value 4">Trading Pairs</li>
+			<li class="mob-live-trades" data-value="value 5">Live Trades</li>
+		</ul>
+	</div>		
+		
+	<div class="container">
+		<div class="d-flex align-items-stretch">
+			<div class="module module-1">
+				<div class="my-orders">
+					<div class="cancel-popup">
+						Do you want to cancel the order
+						<div class="dual">
+							<a href="#" class="btn btn-success">Cancel</a>
+							<a href="#" class="btn btn-danger">Close</a>
+						</div>
+					</div>
+					<div class="head">
+						My Orders
+					</div>
+					<div class="table-wrap">
+						<table id="my-orders" class="table table-hover">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Price</th>
+									<th>Amount</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>
+								<tr>
+									<td><i class="icon-close"></i></td>
+									<td class="text-success">0.00000010</td>
+									<td>
+										23,470
+										<div class="amount-tooltip">
+											<p>Time <span class="text-white">16/08 15:31</span></p>
+											<p>Type <span class="text-success">LIMIT</span></p>
+											<p>Price <span class="text-success">0.000000010</span></p>
+											<p>Amount <span class="text-white">23,470</span></p>
+											<p>Total <span class="text-white">0.00234699</span></p>
+											<a class="cancel-order">Cancel Order</a>
+										</div>
+									</td>
+									<td>0.00234699</td>
+								</tr>								
+							</tbody>
+						</table>
+					</div>
+					<a class="cancel-order" href="#">Cancel All Orders</a>
+				</div>
+				<div class="market-depth">
+					<div class="head">
+						Market Depth
+					</div>
+					<!-- TradingView Widget BEGIN -->
+					<div class="tradingview-widget-container">
+						<div id="tv-medium-widget"></div>
+						<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+						<script type="text/javascript">
+							new TradingView.MediumWidget(
+							{
+							"container_id": "tv-medium-widget",
+							"symbols": [
+							[
+							 "BTC/USD",
+							 "COINBASE:BTCUSD|1y"
+							]
+							],
+							"greyText": "Quotes by",
+										  "gridLineColor": "rgba(255, 255, 255, 1)",
+										  "fontColor": "#83888D",
+										  "underLineColor": "rgba(255, 255, 255, 1)",
+										  "trendLineColor": "rgba(123, 253, 176, 1)",
+							"width": "100%",
+							"height": "100%",
+							"locale": "in",
+							"chartOnly": true
+							}
+							);
+						</script>
+					</div>
+					<!-- TradingView Widget END -->					
+				</div>
+				<div class="status">
+					<div class="realtime-status online">
+						Status: <span>Online</span>
+					</div>
+				</div>
+			</div>
+			<div class="module module-2">
+				<div class="order-book">
+					<div class="head">
+						Order Book
+					</div>
+					<div class="table-wrap mob-hidden">
+						<table class="table table-hover">
+							<thead 
+							<tr>
+								<th></th>
+								<th>Price</th>
+								<th>Amount</th>
+								<th>Total</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-danger">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+<div class="table-wrap mob-visible">
+	<table class="table table-hover">
+		<thead 
+		<tr>
+			<th></th>
+			<th>Price</th>
+			<th>Amount</th>
+			<th>Total</th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-danger">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="text-success">9,400.00</td>
+				<td>0.0998</td>
+				<td>938.12</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+							
+					
+				</div>
+				<div class="order-book bottom mob-hidden">
+					<div class="table-wrap">
+						<table class="table table-hover">
+							<tbody>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-success">9,400.00</td>
+									<td>0.0998</td>
+									<td>938.12</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+		
+				
+			</div>
+			<div class="module module-3">
+				<div class="price-chart">
+					<div class="head">
+						Price Charts
+						<div class="style-toggle act">
+							<span>&#9788;</span>
+							<input type="checkbox" checked id="toggle-view" class="cbx hidden"/>
+							<label for="toggle-view" class="toggle-bar"></label>
+							<span>&#9789;</span>
+						</div>
+					</div>
+					<!-- TradingView Widget BEGIN -->
+					<div class="tradingview-widget-container lite">
+						<div id="tradingview_94172"></div>
+						<script type="text/javascript">
+							new TradingView.widget(
+							{
+							"autosize": true,
+							"symbol": "BITFINEX:BTCUSD",
+							"interval": "5",
+							"timezone": "Etc/UTC",
+							"theme": "Light",
+							"style": "1",
+							"locale": "en",
+							"toolbar_bg": "rgba(247,249,252,1)",
+							"enable_publishing": false,
+							"hide_legend": true,
+							"save_image": false,
+							"container_id": "tradingview_94172"
+							}
+							);
+						</script>
+					</div>
+					<!-- TradingView Widget END -->			
+					<!-- TradingView Widget BEGIN -->
+					<div class="tradingview-widget-container dark">
+						<div id="tradingview_18587"></div>
+						<script type="text/javascript">
+							new TradingView.widget(
+							{
+							"autosize": true,
+							"symbol": "BITFINEX:BTCUSD",
+							"interval": "5",
+							"timezone": "Etc/UTC",
+							"theme": "Dark",
+							"style": "1",
+							"locale": "in",
+							"toolbar_bg": "rgba(19, 23, 33, 1)",
+							"enable_publishing": false,
+							"hide_legend": true,
+							"save_image": false,
+							"container_id": "tradingview_18587"
+							}
+							);
+						</script>
+					</div>
+					<!-- TradingView Widget END -->						
+				</div>
+				<div class="buy-sell">
+					<ul class="nav nav-tabs nav-pills">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#market">MARKET</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#limit">LIMIT</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#stop">STOP</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane container active" id="market">
+							<div class="buy-btc">
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>Buy BTC</h4>
+										<form class="buy-trade">
+											<label>Price</label>
+											<span>USDT</span>								
+											<input type="text" placeholder="Market Price" disabled>
+											<label>Amount</label>
+											<ul class="percent">
+												<li><span>25%</span></li>
+												<li><span>50%</span></li>
+												<li><span>75%</span></li>
+												<li><span>100%</span></li>
+											</ul>
+											<div class="clearfix"></div>
+											<span>BTC</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+											<button type="submit" class="btn btn-primary">Buy BTC</button>
+										</form>
+									</div>
+									<div class="col-sm-6">
+										<h4>Sell BTC</h4>
+										<form class="buy-trade">
+											<label>Price</label>
+											<span>USDT</span>								
+											<input type="text" placeholder="Market Price" disabled>
+											<label>Amount</label>
+											<ul class="percent">
+												<li><span>25%</span></li>
+												<li><span>50%</span></li>
+												<li><span>75%</span></li>
+												<li><span>100%</span></li>
+											</ul>
+											<div class="clearfix"></div>
+											<span>BTC</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+											<button type="submit" class="btn btn-primary">Sell BTC</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane container" id="limit">
+							<div class="buy-btc">
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>Buy BTC</h4>
+										<form class="buy-trade">
+											<label>Price</label>
+											<span>USDT</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<label>Amount</label>
+											<ul class="percent">
+												<li><span>25%</span></li>
+												<li><span>50%</span></li>
+												<li><span>75%</span></li>
+												<li><span>100%</span></li>
+											</ul>
+											<div class="clearfix"></div>											
+											<span>BTC</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+											<button type="submit" class="btn btn-primary">Buy BTC</button>
+										</form>
+									</div>
+									<div class="col-sm-6">
+										<h4>Sell BTC</h4>
+										<form class="buy-trade">
+											<label>Price</label>
+											<span>USDT</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<label>Amount</label>
+											<ul class="percent">
+												<li><span>25%</span></li>
+												<li><span>50%</span></li>
+												<li><span>75%</span></li>
+												<li><span>100%</span></li>
+											</ul>
+											<div class="clearfix"></div>											
+											<span>BTC</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+											<button type="submit" class="btn btn-primary">Sell BTC</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane container" id="stop">
+							<div class="buy-btc">
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>Buy BTC</h4>
+										<form class="buy-trade">
+											<label>Stop</label>
+											<span>USDT</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<label>Amount</label>
+											<ul class="percent">
+												<li><span>25%</span></li>
+												<li><span>50%</span></li>
+												<li><span>75%</span></li>
+												<li><span>100%</span></li>
+											</ul>
+											<div class="clearfix"></div>										
+											<span>BTC</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+											<button type="submit" class="btn btn-primary">Buy BTC</button>
+										</form>
+									</div>
+									<div class="col-sm-6">
+										<h4>Sell BTC</h4>
+										<form class="buy-trade">
+											<label>Stop</label>
+											<span>USDT</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<label>Amount</label>
+											<ul class="percent">
+												<li><span>25%</span></li>
+												<li><span>50%</span></li>
+												<li><span>75%</span></li>
+												<li><span>100%</span></li>
+											</ul>
+											<div class="clearfix"></div>											
+											<span>BTC</span>								
+											<div class="number-input">
+												<input type="number" min="0" placeholder="0.00">
+											</div>
+											<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+											<button type="submit" class="btn btn-primary">Sell BTC</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="module module-4">
+				<div class="trading-pairs act">
+					<div class="head">
+						Trading Pairs
+					</div>
+					<ul class="nav nav-tabs nav-pills">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#myr">MYR</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#btc">BTC</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#usdt">USDT</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#all">ALL</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane container active" id="myr">
+							<div class="table-wrap">
+								<table id="trading-pairs" class="table">
+									<thead>
+										<tr>
+											<th class="text-left">Pair</th>
+											<th>Price</th>
+											<th>Change</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>										
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="tab-pane container" id="btc">
+							<div class="table-wrap">
+								<table id="trading-pairs2" class="table">
+									<thead>
+										<tr>
+											<th class="text-left">Pair</th>
+											<th>Price</th>
+											<th>Change</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>										
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="tab-pane container" id="usdt">
+							<div class="table-wrap">
+								<table id="trading-pairs3" class="table">
+									<thead>
+										<tr>
+											<th class="text-left">Pair</th>
+											<th>Price</th>
+											<th>Change</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>										
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="tab-pane container" id="all">
+							<div class="table-wrap">
+								<table id="trading-pairs4" class="table">
+									<thead>
+										<tr>
+											<th class="text-left">Pair</th>
+											<th>Price</th>
+											<th>Change</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/BTC</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/USDT</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/BTC</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>										
+										<tr>
+											<td>ETH/USDT</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+										<tr>
+											<td>BTC/MYR</td>
+											<td>8,840.59</td>
+											<td class="text-danger">-1.00%</td>
+										</tr>
+										<tr>
+											<td>ETH/MYR</td>
+											<td>401.16</td>
+											<td class="text-success">+2.29%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="live-trades">
+					<div class="head">Live Trades</div>
+					<div class="table-wrap">
+						<table class="table table-hover">
+							<thead>
+							<tr>
+								<th>Time</th>
+								<th>Price</th>
+								<th>Amount</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">0.00000032</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">0.00000032</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-danger">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>
+								<tr>
+									<td>13:34:58</td>
+									<td class="text-success">8,725.32</td>
+									<td>1.1495</td>
+								</tr>								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="buy-sell mob-buy mob-visible">
+	<ul class="nav nav-tabs nav-pills">
+		<li class="nav-item">
+			<a class="nav-link active" data-toggle="tab" href="#buy-market">MARKET</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#buy-limit">LIMIT</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#buy-stop">STOP</a>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane container active" id="buy-market">
+			<div class="buy-btc">
+				<div class="row">
+					<div class="col-sm-12">
+						<h4>Buy BTC</h4>
+						<form class="buy-trade">
+							<label>Price</label>
+							<span>USDT</span>								
+							<input type="text" placeholder="Market Price" disabled>
+							<label>Amount</label>
+							<ul class="percent">
+								<li><span>25%</span></li>
+								<li><span>50%</span></li>
+								<li><span>75%</span></li>
+								<li><span>100%</span></li>
+							</ul>
+							<div class="clearfix"></div>
+							<span>BTC</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+							<button type="submit" class="btn btn-primary">Buy BTC</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane container" id="buy-limit">
+			<div class="buy-btc">
+				<div class="row">
+					<div class="col-sm-12">
+						<h4>Buy BTC</h4>
+						<form class="buy-trade">
+							<label>Price</label>
+							<span>USDT</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<label>Amount</label>
+							<ul class="percent">
+								<li><span>25%</span></li>
+								<li><span>50%</span></li>
+								<li><span>75%</span></li>
+								<li><span>100%</span></li>
+							</ul>
+							<div class="clearfix"></div>											
+							<span>BTC</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+							<button type="submit" class="btn btn-primary">Buy BTC</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane container" id="buy-stop">
+			<div class="buy-btc">
+				<div class="row">
+					<div class="col-sm-12">
+						<h4>Buy BTC</h4>
+						<form class="buy-trade">
+							<label>Stop</label>
+							<span>USDT</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<label>Amount</label>
+							<ul class="percent">
+								<li><span>25%</span></li>
+								<li><span>50%</span></li>
+								<li><span>75%</span></li>
+								<li><span>100%</span></li>
+							</ul>
+							<div class="clearfix"></div>										
+							<span>BTC</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+							<button type="submit" class="btn btn-primary">Buy BTC</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="buy-sell mob-sell mob-visible">
+	<ul class="nav nav-tabs nav-pills">
+		<li class="nav-item">
+			<a class="nav-link active" data-toggle="tab" href="#sell-market">MARKET</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#sell-limit">LIMIT</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#sell-stop">STOP</a>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane container active" id="sell-market">
+			<div class="buy-btc">
+				<div class="row">
+					<div class="col-sm-12">
+						<h4>Sell BTC</h4>
+						<form class="buy-trade">
+							<label>Price</label>
+							<span>USDT</span>								
+							<input type="text" placeholder="Market Price" disabled>
+							<label>Amount</label>
+							<ul class="percent">
+								<li><span>25%</span></li>
+								<li><span>50%</span></li>
+								<li><span>75%</span></li>
+								<li><span>100%</span></li>
+							</ul>
+							<div class="clearfix"></div>
+							<span>BTC</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+							<button type="submit" class="btn btn-primary">Sell BTC</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane container" id="sell-limit">
+			<div class="buy-btc">
+				<div class="row">
+					<div class="col-sm-12">
+						<h4>Sell BTC</h4>
+						<form class="buy-trade">
+							<label>Price</label>
+							<span>USDT</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<label>Amount</label>
+							<ul class="percent">
+								<li><span>25%</span></li>
+								<li><span>50%</span></li>
+								<li><span>75%</span></li>
+								<li><span>100%</span></li>
+							</ul>
+							<div class="clearfix"></div>											
+							<span>BTC</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+							<button type="submit" class="btn btn-primary">Sell BTC</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane container" id="sell-stop">
+			<div class="buy-btc">
+				<div class="row">
+					<div class="col-sm-12">
+						<h4>Sell BTC</h4>
+						<form class="buy-trade">
+							<label>Stop</label>
+							<span>USDT</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<label>Amount</label>
+							<ul class="percent">
+								<li><span>25%</span></li>
+								<li><span>50%</span></li>
+								<li><span>75%</span></li>
+								<li><span>100%</span></li>
+							</ul>
+							<div class="clearfix"></div>											
+							<span>BTC</span>								
+							<div class="number-input">
+								<input type="number" min="0" placeholder="0.00">
+							</div>
+							<div class="total">Total: <span><em>0.00000000</em> USDT</span></div>
+							<button type="submit" class="btn btn-primary">Sell BTC</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="buy-sell-fixed mob-visible">
+<a href="#" class="btn btn-success bsf-buy">Buy</a>
+<a href="#" class="btn btn-danger bsf-sell">Sell</a>
+</div>
+
+<script src="assets/js/vendor/jquery-1.11.2.js"></script>
+<%= javascript_include_tag 'admin' %>
+<script src="assets/js/vendor/slick/slick.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<!-- GOOGLE TRANSLATE -->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="assets/js/vendor/translate.js"></script>
+
+<%= javascript_include_tag("jquery.dataTables.min.js") %>
+<%= javascript_include_tag("dataTables.bootstrap4.min.js") %>
+<script src="assets/js/vendor/datatable/trade.js"></script>
+
+
+</body>
+</html>
