@@ -6,3 +6,4 @@ services:
     scale: 2
     environment:
       - '*'
+      - FORCE_SECURE_CONNECTION=true
