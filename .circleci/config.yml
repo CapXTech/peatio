@@ -1,0 +1,20 @@
+version: 2
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      deploy:
+        filters:
+          branches:
+            only: convox
+
+jobs:
+  deploy:
+    working_directory: ~/repo
+    docker:
+       - image: circleci/ruby:2.5.1-node-browsers
+    steps:
+      - checkout
+      - run:
+          name: Deploy with convox
+          command: convox deploy --app exchange --rack capx/production

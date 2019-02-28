@@ -1,0 +1,9 @@
+services:
+  web:
+    domain: beta.capx.pro
+    build: .
+    port: 3000
+    scale: 2
+    environment:
+      - '*'
+      - FORCE_SECURE_CONNECTION=true
